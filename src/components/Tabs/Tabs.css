@@ -1,0 +1,13 @@
+.tabButton.css-1ujykiq-MuiButtonBase-root-MuiTab-root,
+.tabButton.Mui-selected {
+  color: var(--white);
+  width: 50vw;
+  font: normal normal 600 1.2rem/100% "Inter";
+  text-transform: capitalize;
+}
+.tabButton.Mui-selected {
+  color: var(--blue) !important;
+}
+.CoinTabContainer .css-1aquho2-MuiTabs-indicator{
+  background-color: var(--blue);
+}
