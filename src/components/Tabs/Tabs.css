@@ -8,6 +8,14 @@
 .tabButton.Mui-selected {
   color: var(--blue) !important;
 }
-.CoinTabContainer .css-1aquho2-MuiTabs-indicator{
+.CoinTabContainer .css-1aquho2-MuiTabs-indicator {
   background-color: var(--blue);
+}
+.gridFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 2rem;
 }

@@ -3,6 +3,7 @@ import TabContext from "@mui/lab/TabContext"
 import TabPanel from "@mui/lab/TabPanel"
 import Tab from "@mui/material/Tab"
 import React, { useState } from "react"
+import GridComponent from "../GridComponent/GridComponent"
 import "./Tabs.css"
 
 const TabsComponent = ({ coins }) => {
@@ -21,29 +22,19 @@ const TabsComponent = ({ coins }) => {
         </TabList>
 
         <TabPanel value={"grid"}>
-          <div>
+          <div className="gridFlex">
             {coins.map((coin, i) => {
-              return (
-                <div key={`coin${i}`}>
-                  <img src={coin.image} alt="symbol" />
-                <p >
-                  {i + 1}. {coin.name}
-                </p>
-
-                </div>
-              )
+              return <GridComponent coin={coin} index={i} />
             })}
           </div>
         </TabPanel>
-        <TabPanel value={"list"}><div>
+        <TabPanel value={"list"}>
+          <div>
             {coins.map((coin, i) => {
-              return (
-                <p key={`coin${i}`}>
-                  {i + 1}. {coin.symbol}
-                </p>
-              )
+              return <GridComponent coin={coin} index={i} />
             })}
-          </div></TabPanel>
+          </div>
+        </TabPanel>
       </TabContext>
     </div>
   )

@@ -1,0 +1,134 @@
+.gridContainer {
+  width: 350px;
+  background-color: var(--darkgrey);
+  border: 2px solid var(--darkgrey);
+  border-radius: 0.75rem;
+}
+.gridContainer.greenBorder:hover{
+  border-color: var(--green);
+  transition: all 0.3s;
+}
+.gridContainer.redBorder:hover{
+  border-color: var(--red);
+  transition: all 0.3s;
+}
+.infoFlex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 1.5rem;
+}
+.coinLogo {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+.nameCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.coinSymbol {
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.coinName {
+  color: var(--grey);
+  text-transform: capitalize;
+  font-weight: light;
+  font-size: 1rem;
+  margin: 0;
+}
+.chipFlex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 1.5rem;
+}
+.priceChip {
+  border: 2px solid var(--green);
+  border-radius: 2rem;
+  padding: 0.35rem 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--green);
+}
+.priceChip:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--white);
+  border-color: var(--white);
+  transition: all 0.3s;
+}
+.priceChipRed {
+  border: 2px solid var(--red);
+  border-radius: 2rem;
+  padding: 0.35rem 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--red);
+}
+.priceChipRed:hover {
+  cursor: pointer;
+  background-color: var(--red);
+  color: var(--white);
+  border-color: var(--white);
+  transition: all 0.3s;
+}
+.iconChip {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconChip.up {
+  border: 2px solid var(--green);
+  color: var(--green);
+}
+.iconChip.up:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--white);
+  border-color: var(--white);
+  transition: all 0.3s;
+}
+.iconChip.down {
+  border: 2px solid var(--red);
+  color: var(--red);
+}
+.iconChip.down:hover {
+  cursor: pointer;
+  background-color: var(--red);
+  color: var(--white);
+  border-color: var(--white);
+  transition: all 0.3s;
+}
+.infoContainer {
+  margin: 1.5rem;
+}
+.infoContainer .coinPriceUp,
+.infoContainer .coinPriceDown {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.infoContainer .coinPriceDown {
+  color: var(--red);
+}
+.totalVolume,
+.marketCap {
+  font-weight: 600;
+  color: var(--grey);
+  font-size: 1rem;
+}
