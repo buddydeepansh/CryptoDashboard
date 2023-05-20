@@ -2,6 +2,7 @@ import React from "react"
 import "./Header.css"
 import Drawerr from "./Drawerr"
 import Button from "../Button/Button"
+import { Link } from "react-router-dom"
 
 const Header = () => {
   return (
@@ -10,16 +11,16 @@ const Header = () => {
         CryptoTracker<span style={{ color: "var(--blue)" }}>.</span>
       </h1>
       <div className="links">
-        <a href="/">
+        <Link  to="/">
           <p className="link">Home</p>
-        </a>
-        <a href="/">
+        </Link>
+        <Link to="/watchlist">
           <p className="link">Watchlist</p>
-        </a>
-        <a href="/">
+        </Link>
+        <Link to="/compare">
           <p className="link">Compare</p>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="dashboard">
           <Button
             text={"Dashboard"}
             outlined={true}
@@ -27,7 +28,7 @@ const Header = () => {
               console.log("#")
             }}
           />
-        </a>
+        </Link>
       </div>
       <div className="mobileDrawer">
         <Drawerr />

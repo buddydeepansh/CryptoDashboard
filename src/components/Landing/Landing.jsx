@@ -4,6 +4,7 @@ import React from "react"
 import Button from "../Common/Button/Button"
 import { motion } from "framer-motion"
 import "./Landing.css"
+import { Link } from "react-router-dom"
 
 const Landing = () => {
   return (
@@ -19,8 +20,21 @@ const Landing = () => {
           Track crypto through a public api in real time. Visit the dashboard to do so!
         </motion.p>
         <motion.div className="btnFlex" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 1.5 }}>
-          <Button text={"Dashboard"} />
-          <Button text={"Share"} outlined={true} />
+          <Link to="/dashboard">
+            <Button
+              text={"Dashboard"}
+              onClick={() => {
+                console.log("#")
+              }}
+            />
+          </Link>
+          <Button
+            text={"Share"}
+            outlined={true}
+            onClick={() => {
+              console.log("#")
+            }}
+          />
         </motion.div>
       </div>
       <div className="phoneContainer">
