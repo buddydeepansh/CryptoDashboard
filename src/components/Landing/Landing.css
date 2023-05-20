@@ -1,0 +1,109 @@
+.flexInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 3rem;
+}
+.trackCryptoHeading,
+.realTimeHeading {
+  font-size: 6.5rem;
+  margin: 0;
+}
+.trackCryptoHeading {
+  color: var(--white);
+}
+.trackCryptoHeading:hover {
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: var(--white);
+  color: var(--black);
+  transition: all 0.3s;
+}
+
+.realTimeHeading {
+  color: var(--blue);
+}
+
+.infoText {
+  font-size: 1rem;
+  color: var(--grey);
+}
+.btnFlex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.phoneContainer {
+  width: 50%;
+  position: relative;
+  padding: 1rem;
+}
+.iphoneimg,
+.gradientimg {
+  position: absolute;
+}
+.iphoneimg {
+  z-index: 5;
+  min-width: 300px;
+  width: 40%;
+  right: 0;
+}
+.gradientimg {
+  z-index: 4;
+  min-width: 250px;
+  width: 40%;
+  top: 7rem;
+  right: 0;
+}
+
+@media only screen and (max-width: 1250px) {
+  .trackCryptoHeading,
+  .realTimeHeading {
+    font-size: 5rem;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .iphoneimg {
+    min-width: 250px;
+  }
+  .gradientimg {
+    min-width: 200px;
+    top: 6rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .flexInfo {
+    flex-direction: column;
+  }
+  .phoneContainer {
+    margin: auto;
+    display: block;
+    margin-top: 3rem;
+  }
+  .iphoneimg {
+    left: 15%;
+  }
+  .gradientimg {
+    left: 25%;
+  }
+  .leftComponent {
+    width: 100%;
+  }
+  .trackCryptoHeading,
+  .realTimeHeading {
+    text-align: center;
+    font-size: 3rem;
+  }
+  .trackCryptoHeading{
+    -webkit-text-stroke-width: 1.5px;
+  }
+  .infoText {
+    text-align: center;
+  }
+  .btnFlex {
+    justify-content: center;
+  }
+}
