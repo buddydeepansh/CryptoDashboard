@@ -4,7 +4,7 @@ import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded"
 import "./GridComponent.css"
 const GridComponent = ({ coin, index }) => {
   return (
-    <div className={`gridContainer ${coin.price_change_percentage_24h >= 0 ? "greenBorder" : "redBorder"}`}>
+    <div key={`gridIem${index}`} className={`gridContainer ${coin.price_change_percentage_24h >= 0 ? "greenBorder" : "redBorder"}`}>
       <div className="infoFlex">
         <img src={coin.image} alt="symbol" className="coinLogo" />
         <div className="nameCol">

@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab"
 import React, { useState } from "react"
 import GridComponent from "../GridComponent/GridComponent"
 import "./Tabs.css"
+import ListComponent from "../ListComponent/ListComponent"
 
 const TabsComponent = ({ coins }) => {
   const [value, setValue] = useState("grid")
@@ -29,11 +30,11 @@ const TabsComponent = ({ coins }) => {
           </div>
         </TabPanel>
         <TabPanel value={"list"}>
-          <div>
+          <table className="listTable">
             {coins.map((coin, i) => {
-              return <GridComponent coin={coin} index={i} />
+              return <ListComponent coin={coin} index={i} />
             })}
-          </div>
+          </table>
         </TabPanel>
       </TabContext>
     </div>
