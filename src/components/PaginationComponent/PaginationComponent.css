@@ -1,0 +1,27 @@
+.PaginationComponent {
+  /* background-color: wheat; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+  margin-bottom: 2.5rem;
+}
+.PaginationComponent .MuiPagination-root {
+  width: 100%;
+}
+.PaginationComponent .MuiPagination-root ul {
+  justify-content: space-evenly;
+}
+.PaginationComponent .Mui-selected {
+  background-color: var(--blue) !important;
+  color: #fff !important;
+  border-color: var(--blue) !important;
+}
+.PaginationComponent .MuiPaginationItem-ellipsis {
+  border: 0px solid var(--grey) !important;
+}
+.PaginationComponent .MuiPaginationItem-text {
+  color: var(--white);
+  border: 1px solid var(--grey);
+}
