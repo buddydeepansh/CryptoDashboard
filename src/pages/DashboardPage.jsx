@@ -4,12 +4,15 @@ import Tabs from "../components/Tabs/TabsComponent"
 import axios from "axios"
 import Search from "../components/Search/Search"
 import PaginationComponent from "../components/PaginationComponent/PaginationComponent"
+import Loader from "../components/Loader/Loader"
+import BackTop from "../components/BackTop/BackTop"
 
 const DashboardPage = () => {
   const [coins, setCoins] = useState([])
   const [paginatedCoins, setPaginatedCoins] = useState([])
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
+  const [isLoaded, setisLoaded] = useState(false)
   const onSearchChange = (e) => {
     setSearch(e.target.value)
   }
@@ -27,6 +30,7 @@ const DashboardPage = () => {
       .then((response) => {
         // console.log(response.data)
         setCoins(response.data)
+        setisLoaded(true)
         setTimeout(() => {
           console.log("Pagination 2", coins)
           setPaginatedCoins(response.data.slice(0, 10))
@@ -34,6 +38,7 @@ const DashboardPage = () => {
       })
       .catch((error) => {
         console.log("API Error:", error)
+        setisLoaded(true)
         // setting demo json if api response fails
         setCoins([
           {
@@ -3228,9 +3233,16 @@ const DashboardPage = () => {
   return (
     <div>
       <Header />
-      <Search search={search} onSearchChange={onSearchChange} />
-      <Tabs coins={search ? filteredCoins : paginatedCoins} />
-      {!search && <PaginationComponent page={page} handlePageChange={handlePageChange} />}
+      <BackTop/>
+      {isLoaded ? (
+        <>
+          <Search search={search} onSearchChange={onSearchChange} />
+          <Tabs coins={search ? filteredCoins : paginatedCoins} />
+          {!search && <PaginationComponent page={page} handlePageChange={handlePageChange} />}
+        </>
+      ) : (
+        <Loader />
+      )}
     </div>
   )
 }
