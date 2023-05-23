@@ -1,0 +1,7 @@
+.greyWrapper {
+  background-color: var(--darkgrey);
+  display: block;
+  max-width: 95%;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+}
