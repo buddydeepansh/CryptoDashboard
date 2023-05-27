@@ -6,6 +6,7 @@ import Loader from "../components/Loader/Loader"
 import Header from "../components/Common/Header/Header"
 import { convertObject } from "../functions/ConvertObject"
 import ListComponent from "../components/ListComponent/ListComponent"
+import CoinInfo from "../components/Coin/CoinInfo/CoinInfo"
 
 const CoinPage = () => {
   const { coinId } = useParams()
@@ -31,9 +32,12 @@ const CoinPage = () => {
     <div>
       <Header />
       {isLoaded ? (
-        <div className="greyWrapper">
-          <ListComponent coin={coin} />
-        </div>
+        <>
+          <div className="greyWrapper">
+            <ListComponent coin={coin} />
+          </div>
+          <CoinInfo heading={coin.name} desc={coin.desc} />
+        </>
       ) : (
         <Loader />
       )}

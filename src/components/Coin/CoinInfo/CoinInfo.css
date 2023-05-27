@@ -1,0 +1,22 @@
+.CoinInfo.greyWrapper {
+  padding: 1rem;
+  max-width: 93%;
+}
+.coinInfoHeading,
+.coinInfoDescription {
+  margin: 1rem;
+}
+.coinInfoDescription {
+  margin-top: 0;
+}
+.coinInfoDescription span {
+  cursor: pointer;
+  color: var(--grey);
+}
+.coinInfoDescription a {
+  text-decoration: underline;
+}
+.coinInfoDescription a:hover {
+  color: var(--blue);
+  transition: all 0.3s ease-in-out;
+}
