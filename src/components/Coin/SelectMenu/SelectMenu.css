@@ -1,0 +1,7 @@
+.selectMenu{
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin: 0 1rem;
+}
