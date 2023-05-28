@@ -9,6 +9,9 @@ const BackTop = () => {
   }
 
   function scrollFunction() {
+    if (!scrollBTN.current) {
+      return
+    }
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
       scrollBTN.current.style.display = "flex"
     } else {

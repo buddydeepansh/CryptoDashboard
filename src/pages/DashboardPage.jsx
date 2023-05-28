@@ -40,6 +40,7 @@ const DashboardPage = () => {
         console.log("API Error:", error)
         setisLoaded(true)
         // setting demo json if api response fails
+        /*
         setCoins([
           {
             id: "bitcoin",
@@ -2934,6 +2935,7 @@ const DashboardPage = () => {
             last_updated: "2023-05-21T07:25:27.401Z",
           },
         ])
+        */
         setTimeout(() => {
           console.log("pagination", coins)
           setPaginatedCoins([
@@ -3233,7 +3235,7 @@ const DashboardPage = () => {
   return (
     <div>
       <Header />
-      <BackTop/>
+      <BackTop />
       {isLoaded ? (
         <>
           <Search search={search} onSearchChange={onSearchChange} />
