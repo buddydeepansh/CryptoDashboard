@@ -13,13 +13,15 @@ import LineChart from "../components/Coin/LineChart/LineChart"
 import convertDate from "../functions/ConvertDate"
 import SelectMenu from "../components/Coin/SelectMenu/SelectMenu"
 import SetChartData from "../functions/SetChartData"
+import ToggleComponent from "../components/ToggleComponent/ToggleComponent"
 
 const CoinPage = () => {
   const { coinId } = useParams()
   const [coin, setCoin] = useState()
-  const [days, setDays] = useState(7)
+  const [days, setDays] = useState(60)
   const [isLoaded, setisLoaded] = useState(false)
   const [chartData, setChartData] = useState({})
+  const [toggleMenu, setToggleMenu] = useState("prices")
   useEffect(() => {
     if (coinId) {
       getData()
@@ -31,20 +33,8 @@ const CoinPage = () => {
       setCoin(coinData)
       convertObject(setCoin, coinData)
       setisLoaded(true)
-      const CoinPrices = await GetCoinPrices(coinId, days)
-      // const CoinPrices = {
-      //   prices: [
-      //     [1684713600000, 1804.9290671072804],
-      //     [1684800000000, 1818.4014644980855],
-      //     [1684886400000, 1854.1931182731782],
-      //     [1684972800000, 1800.736010305837],
-      //     [1685059200000, 1805.8057604056937],
-      //     [1685145600000, 1828.9565366197276],
-      //     [1685232000000, 1830.3066513168976],
-      //     [1685290435000, 1843.4618704475324],
-      //   ],
-      // }
-      if (CoinPrices.prices.length > 0) {
+      const CoinPrices = await GetCoinPrices(coinId, days, toggleMenu)
+      if (CoinPrices.length > 0) {
         SetChartData(setChartData, CoinPrices)
       }
     } else setisLoaded(false)
@@ -52,20 +42,17 @@ const CoinPage = () => {
   const handleDaysChange = async (event) => {
     await setDays(event.target.value)
     setisLoaded(false)
-    const CoinPrices = await GetCoinPrices(coinId, event.target.value)
-    // const CoinPrices = {
-    //   prices: [
-    //     [1684713600000, 1804.9290671072804],
-    //     [1684800000000, 1818.4014644980855],
-    //     [1684886400000, 1854.1931182731782],
-    //     [1684972800000, 1800.736010305837],
-    //     [1685059200000, 1805.8057604056937],
-    //     [1685145600000, 1828.9565366197276],
-    //     [1685232000000, 1830.3066513168976],
-    //     [1685290435000, 1843.4618704475324],
-    //   ],
-    // }
-    if (CoinPrices.prices.length > 0) {
+    const CoinPrices = await GetCoinPrices(coinId, event.target.value, toggleMenu)
+    if (CoinPrices.length > 0) {
+      SetChartData(setChartData, CoinPrices)
+    }
+    setisLoaded(true)
+  }
+  const handleToggleChange = async (e) => {
+    setisLoaded(false)
+    setToggleMenu(e.target.value)
+    const CoinPrices = await GetCoinPrices(coinId, days, e.target.value)
+    if (CoinPrices.length > 0) {
       SetChartData(setChartData, CoinPrices)
     }
     setisLoaded(true)
@@ -80,6 +67,7 @@ const CoinPage = () => {
           </div>
           <div className="greyWrapper chartDiv">
             <SelectMenu days={days} handleChange={handleDaysChange} />
+            <ToggleComponent alignment={toggleMenu} handleToggle={handleToggleChange} />
             <LineChart chartData={chartData} />
           </div>
           <CoinInfo heading={coin.name} desc={coin.desc} />
