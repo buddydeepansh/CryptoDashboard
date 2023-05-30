@@ -18,7 +18,7 @@ import ToggleComponent from "../components/ToggleComponent/ToggleComponent"
 const CoinPage = () => {
   const { coinId } = useParams()
   const [coin, setCoin] = useState()
-  const [days, setDays] = useState(60)
+  const [days, setDays] = useState(7)
   const [isLoaded, setisLoaded] = useState(false)
   const [chartData, setChartData] = useState({})
   const [toggleMenu, setToggleMenu] = useState("prices")
@@ -32,10 +32,10 @@ const CoinPage = () => {
     if (coinData) {
       setCoin(coinData)
       convertObject(setCoin, coinData)
-      setisLoaded(true)
       const CoinPrices = await GetCoinPrices(coinId, days, toggleMenu)
       if (CoinPrices.length > 0) {
-        SetChartData(setChartData, CoinPrices)
+        await SetChartData(setChartData, CoinPrices)
+        setisLoaded(true)
       }
     } else setisLoaded(false)
   }
@@ -44,7 +44,7 @@ const CoinPage = () => {
     setisLoaded(false)
     const CoinPrices = await GetCoinPrices(coinId, event.target.value, toggleMenu)
     if (CoinPrices.length > 0) {
-      SetChartData(setChartData, CoinPrices)
+      await SetChartData(setChartData, CoinPrices)
     }
     setisLoaded(true)
   }
@@ -53,7 +53,7 @@ const CoinPage = () => {
     setToggleMenu(e.target.value)
     const CoinPrices = await GetCoinPrices(coinId, days, e.target.value)
     if (CoinPrices.length > 0) {
-      SetChartData(setChartData, CoinPrices)
+      await SetChartData(setChartData, CoinPrices)
     }
     setisLoaded(true)
   }
