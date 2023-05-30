@@ -6,6 +6,7 @@ import Search from "../components/Search/Search"
 import PaginationComponent from "../components/PaginationComponent/PaginationComponent"
 import Loader from "../components/Loader/Loader"
 import BackTop from "../components/BackTop/BackTop"
+import GetAllCoins from "../functions/GetAllCoins"
 
 const DashboardPage = () => {
   const [coins, setCoins] = useState([])
@@ -23,23 +24,23 @@ const DashboardPage = () => {
     setPaginatedCoins(coins.slice(prevIndex, prevIndex + 10))
   }
 
+  const getAllCoinsData = async () => {
+    const allCoins = await GetAllCoins()
+    if (allCoins) {
+      await setCoins(allCoins)
+      setisLoaded(true)
+      setTimeout(async () => {
+        console.log("Pagination 2", coins)
+        await setPaginatedCoins(allCoins.slice(0, 10))
+      }, 500)
+    } else {
+      setisLoaded(false)
+    }
+  }
+
   const filteredCoins = coins.filter((item) => item.name.toLowerCase().includes(search.trim().toLowerCase()) || item.symbol.toLowerCase().includes(search.trim().toLowerCase()))
   useEffect(() => {
-    axios
-      .get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en`)
-      .then((response) => {
-        // console.log(response.data)
-        setCoins(response.data)
-        setisLoaded(true)
-        setTimeout(() => {
-          console.log("Pagination 2", coins)
-          setPaginatedCoins(response.data.slice(0, 10))
-        }, 500)
-      })
-      .catch((error) => {
-        console.log("API Error:", error)
-        setisLoaded(true)
-      })
+    getAllCoinsData()
   }, [])
 
   return (

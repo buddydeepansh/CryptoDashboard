@@ -4,7 +4,7 @@ import { Chart as ChartJS } from "chart.js/auto"
 import convertNumber from "../../../functions/ConvertNumber"
 import "./LineChart.css"
 
-const LineChart = ({ chartData, priceType, multiAxis }) => {
+const LineChart = ({ chartData, priceType, multiAxis = false }) => {
   const options = {
     plugings: {
       legend: {
@@ -24,11 +24,11 @@ const LineChart = ({ chartData, priceType, multiAxis }) => {
         ticks: {
           callback: function (value) {
             if (priceType == "total_volumes") {
-              return convertNumber(value);
+              return convertNumber(value)
             } else if (priceType == "market_caps") {
-              return "$" + convertNumber(value);
+              return "$" + convertNumber(value)
             } else {
-              return "$" + value.toLocaleString();
+              return "$" + value.toLocaleString()
             }
           },
         },
@@ -40,11 +40,11 @@ const LineChart = ({ chartData, priceType, multiAxis }) => {
         ticks: {
           callback: function (value) {
             if (priceType == "total_volumes") {
-              return convertNumber(value);
+              return convertNumber(value)
             } else if (priceType == "market_caps") {
-              return "$" + convertNumber(value);
+              return "$" + convertNumber(value)
             } else {
-              return "$" + value.toLocaleString();
+              return "$" + value.toLocaleString()
             }
           },
         },

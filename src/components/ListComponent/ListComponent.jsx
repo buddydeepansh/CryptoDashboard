@@ -6,6 +6,7 @@ import { Tooltip } from "@mui/material"
 import convertNumber from "../../functions/ConvertNumber"
 import { Link } from "react-router-dom"
 const ListComponent = ({ coin, index }) => {
+  console.log("coinlistcomponent",coin)
   return (
     <Link to={`/coin/${coin.id}`}>
       <tr key={`ListItem${index}`} className="listRow">

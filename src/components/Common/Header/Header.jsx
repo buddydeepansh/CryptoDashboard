@@ -20,7 +20,7 @@ const Header = () => {
         <Link to="/compare">
           <p className="link">Compare</p>
         </Link>
-        <Link to="dashboard">
+        <Link to="/dashboard">
           <Button
             text={"Dashboard"}
             outlined={true}

@@ -68,7 +68,7 @@ const CoinPage = () => {
           <div className="greyWrapper chartDiv">
             <SelectMenu days={days} handleChange={handleDaysChange} />
             <ToggleComponent alignment={toggleMenu} handleToggle={handleToggleChange} />
-            <LineChart chartData={chartData} />
+            <LineChart chartData={chartData} multiAxis={false} />
           </div>
           <CoinInfo heading={coin.name} desc={coin.desc} />
         </>

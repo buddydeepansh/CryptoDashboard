@@ -1,6 +1,7 @@
 import axios from "axios"
 
 export async function GetCoinPrices(coinId, days, priceType) {
+  // return // saving un needed api call while development
   const myPrices = await axios
     .get(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${days}&interval=daily`)
     .then((response) => {

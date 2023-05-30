@@ -1,14 +1,12 @@
-import FormControl from "@mui/material/FormControl"
-import InputLabel from "@mui/material/InputLabel"
 import MenuItem from "@mui/material/MenuItem"
 import Select from "@mui/material/Select"
-import React, { useState } from "react"
+import React from "react"
 import "./SelectMenu.css"
 
-const SelectMenu = ({ days, handleChange }) => {
+const SelectMenu = ({ days, handleChange, noPTag = false }) => {
   return (
     <div className="selectMenu">
-      <p className="selectText">Price Change in</p>
+      {!noPTag && <p className="selectText">Price Change in</p>}
       <Select
         labelId="daysLabel"
         id="daysSelect"
