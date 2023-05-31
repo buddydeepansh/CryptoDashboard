@@ -9,6 +9,7 @@ import SetChartData from "../functions/SetChartData"
 import { convertObject } from "../functions/ConvertObject"
 import { GetCoinData } from "../functions/GetCoinData"
 import { GetCoinPrices } from "../functions/GetCoinPrices"
+import { motion } from "framer-motion"
 import LineChart from "../components/Coin/LineChart/LineChart"
 import "./ComparePage.css"
 import ToggleComponent from "../components/ToggleComponent/ToggleComponent"
@@ -85,20 +86,20 @@ const ComparePage = () => {
       <Header />
       {isLoaded ? (
         <>
-          <div className="coinsDaysFlex">
+          <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="coinsDaysFlex">
             <SelectCoins crypto1={crypto1} crypto2={crypto2} handleCryptoChange={handleCryptoChange} />
             <SelectMenu days={selectDays} handleChange={handleDaysChange} noPTag={true} />
             <ToggleComponent alignment={priceType} handleToggle={handleToggleChange} />
-          </div>
+          </motion.div>
 
           {Object.keys(chartData).length > 0 ? (
             <>
-              <div className="greyWrapper">
+              <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} className="greyWrapper">
                 <ListComponent coin={crypto1Data} index={0} />
-              </div>
-              <div className="greyWrapper">
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}  className="greyWrapper">
                 <ListComponent coin={crypto2Data} index={1} />
-              </div>
+              </motion.div>
               <LineChart chartData={chartData} priceType={priceType} multiAxis={true} className={"compareLineChart"} />
               <CoinInfo heading={crypto1Data.name} desc={crypto1Data.desc} />
               <CoinInfo heading={crypto2Data.name} desc={crypto2Data.desc} />
