@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded"
+import { motion } from "framer-motion"
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded"
 import StarsRoundedIcon from "@mui/icons-material/StarsRounded"
 import StarBorderPurple500RoundedIcon from "@mui/icons-material/StarBorderPurple500Rounded"
@@ -26,7 +27,7 @@ const ListComponent = ({ coin, index }) => {
 
   return (
     <Link to={`/coin/${coin.id}`}>
-      <tr key={`ListItem${index}`} className="listRow">
+      <motion.tr initial={{ opacity: 0, x: 150 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }} key={`ListItem${index}`} className="listRow">
         <td className="infoFlex">
           <Tooltip placement={"bottom"} title={`${coin.name} logo`}>
             <img src={coin.image} alt="symbol" className="coinLogo" />
@@ -83,7 +84,7 @@ const ListComponent = ({ coin, index }) => {
             {isWatchlisted ? <StarsRoundedIcon /> : <StarBorderPurple500RoundedIcon />}
           </Tooltip>
         </td>
-      </tr>
+      </motion.tr>
     </Link>
   )
 }

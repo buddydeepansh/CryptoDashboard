@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import StarsRoundedIcon from "@mui/icons-material/StarsRounded"
-import StarBorderPurple500RoundedIcon from '@mui/icons-material/StarBorderPurple500Rounded';
+import { motion } from "framer-motion"
+import StarBorderPurple500RoundedIcon from "@mui/icons-material/StarBorderPurple500Rounded"
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded"
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded"
 import "./GridComponent.css"
@@ -24,7 +25,13 @@ const GridComponent = ({ coin, index }) => {
   }, [])
   return (
     <Link to={`/coin/${coin.id}`}>
-      <div key={`gridIem${index}`} className={`gridContainer ${coin.price_change_percentage_24h >= 0 ? "greenBorder" : "redBorder"}`}>
+      <motion.div
+        initial={{ opacity: 0, y: 150 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+        key={`gridIem${index}`}
+        className={`gridContainer ${coin.price_change_percentage_24h >= 0 ? "greenBorder" : "redBorder"}`}
+      >
         <div className="infoFlex">
           <img src={coin.image} alt="symbol" className="coinLogo" />
           <div className="nameCol">
@@ -56,7 +63,7 @@ const GridComponent = ({ coin, index }) => {
           <p className="totalVolume">Total Volume: {coin.total_volume.toLocaleString()}</p>
           <p className="marketCap">Total Market Cap: ${coin.market_cap.toLocaleString()}</p>
         </div>
-      </div>
+      </motion.div>
     </Link>
   )
 }
