@@ -9,4 +9,10 @@
   position: fixed;
   z-index: 1000;
   overflow: hidden;
+  flex-direction: column;
+}
+.loaderContainer p{
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--blue);
 }

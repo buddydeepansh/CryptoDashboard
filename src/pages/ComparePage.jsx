@@ -112,7 +112,7 @@ const ComparePage = () => {
           )}
         </>
       ) : (
-        <Loader />
+        <Loader text={"API Response failed.<br/> Please try after some time!"} />
       )}
     </div>
   )

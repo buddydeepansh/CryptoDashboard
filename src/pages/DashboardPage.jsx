@@ -54,7 +54,7 @@ const DashboardPage = () => {
           {!search && <PaginationComponent page={page} handlePageChange={handlePageChange} />}
         </>
       ) : (
-        <Loader />
+        <Loader text={"API response failed. <br/> Please try after some time!"} />
       )}
     </div>
   )

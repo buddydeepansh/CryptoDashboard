@@ -1,29 +1,38 @@
 import React, { useEffect, useState } from "react"
 import Header from "../components/Common/Header/Header"
 import Loader from "../components/Loader/Loader"
+import GetAllCoins from "../functions/GetAllCoins"
+import TabsComponent from "../components/Tabs/TabsComponent"
+import GetWatchList from "../functions/GetWatchList"
 
 const WatchListPage = () => {
   const [isLoaded, setIsLoaded] = useState(true)
-  const [storageData, setStorageData] = useState()
-  useEffect(() => {
-    let cryptoData = localStorage.getItem("cryptoData")
-    if (cryptoData) {
-      console.log("retrived data")
+  const [coins, setCoins] = useState([])
+  const getAllCoinsData = async () => {
+    setIsLoaded(false)
+    const allCoins = await GetWatchList()
+    if (allCoins) {
+      await setCoins(allCoins)
+      setIsLoaded(true)
     } else {
-      console.log("retrived data 2")
+      setIsLoaded(false)
     }
+  }
+  useEffect(() => {
+    getAllCoinsData()
   }, [])
+  window.addEventListener("storage", getAllCoinsData)
 
   return (
     <div className="watchListPage">
       <Header />
       {isLoaded ? (
         <>
-          <p>hi</p>
+          <TabsComponent coins={coins} />
         </>
       ) : (
         <>
-          <Loader />
+          <Loader text={"Please add some coins in watchlist<br/> Retry after some time"} />
         </>
       )}
     </div>
