@@ -1,6 +1,6 @@
-.tabButton.css-1ujykiq-MuiButtonBase-root-MuiTab-root,
+.tabButton.MuiButtonBase-root,
 .tabButton.Mui-selected {
-  color: var(--white);
+  color: var(--white) !important;
   width: 50vw;
   font: normal normal 600 1.2rem/100% "Inter";
   text-transform: capitalize;
@@ -9,7 +9,7 @@
   color: var(--blue) !important;
 }
 .CoinTabContainer .css-1aquho2-MuiTabs-indicator {
-  background-color: var(--blue);
+  background-color: var(--blue) !important;
 }
 .gridFlex {
   display: flex;
