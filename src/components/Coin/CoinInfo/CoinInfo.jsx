@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./CoinInfo.css"
 const CoinInfo = ({ heading, desc }) => {
-  console.log("coinlistcomponent info0",heading,desc)
+  // console.log("coinlistcomponent info0",heading,desc)
   const shortDesc = desc.slice(0, 300) + `<br/><span>Read More...</span>`
   const longDesc = desc+ `<br/><br/><span>Read Less</span>`
   const [flag, setflag] = useState(true)
