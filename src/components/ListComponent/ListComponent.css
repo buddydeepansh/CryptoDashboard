@@ -57,3 +57,58 @@
     display: none;
   }
 }
+@media screen and (max-width: 800px){
+  .listRow{
+    overflow-x: scroll;
+  }
+  .listRow td{
+    width: 25%;
+  }
+  .listRow td.infoFlex {
+    width: 1.5rem;
+    margin: 0.5rem;
+  }
+  .listRow td.infoFlex {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .coinLogo {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  .coinSymbol{
+    font-size: 1rem;
+  }
+  .coinName{
+    font-size: 0.8rem;
+  }
+  .chipFlex,.infoContainer{
+    margin: 0.5rem;
+  }
+  .priceChip {
+    border: 1px solid var(--green);
+    padding: 0.25rem 1rem;
+    font-size: 0.8rem;
+    min-width: 44px;
+  }
+  .infoContainer .coinPriceUp, .infoContainer .coinPriceDown {
+    font-size: 0.8rem;
+  }
+  .totalVolume, .marketCap {
+    font-size: 0.8rem;
+  }
+  .addWatchList {
+    border-radius: 50%;
+    margin-left: 0rem;
+  }
+  .addWatchList svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  .nameCol {
+    gap: 0.1rem;
+  }
+  .listRow {
+    margin: 1rem 0rem;
+  }
+}

@@ -108,3 +108,11 @@
     justify-content: center;
   }
 }
+@media screen and (max-width: 500px) {
+  .iphoneimg{
+    left: -15%
+  }
+  .gradientimg{
+    left: 0;
+  }
+}

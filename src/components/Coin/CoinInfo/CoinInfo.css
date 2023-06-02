@@ -20,3 +20,14 @@
   color: var(--blue);
   transition: all 0.3s ease-in-out;
 }
+@media screen and (max-width: 800px) {
+  .CoinInfo.greyWrapper {
+    max-width: 85%;
+  }
+  .coinInfoHeading{
+    font-size: 1rem;
+  }
+  .coinInfoDescription{
+    font-size: 0.8rem;
+  }
+}
