@@ -83,5 +83,5 @@ To install this project locally run
 
 ## Acknowledgements
 
- - This project is made under the guidance of Mr. Avi Vashishta (Intructor: AccioJobs).
+ - This project is made under the guidance of Mr. Avi Vashishta (Instructor: AccioJobs).
 
