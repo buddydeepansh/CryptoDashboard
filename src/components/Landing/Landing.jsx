@@ -1,12 +1,39 @@
 import iphone from "../../assets/iphone.png"
 import gradient from "../../assets/gradient.png"
-import React from "react"
+import React, { useState } from "react"
 import Button from "../Common/Button/Button"
 import { motion } from "framer-motion"
 import "./Landing.css"
 import { Link } from "react-router-dom"
+import Snackbar from "@mui/material/Snackbar"
+import MuiAlert from "@mui/material/Alert"
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
+})
 
 const Landing = () => {
+  const [copied, setCopied] = useState(false)
+  const handleShare = async () => {
+    if (navigator.share) {
+      // Share API is supported (mobile)
+      try {
+        await navigator.share({
+          title: "Crpto Dashboard",
+          text: "Check out this amazing Crypto dashboard demo page.",
+          url: "https://crypto-dashboard-demo.netlify.app/",
+        })
+      } catch (error) {
+        console.error("Error sharing:", error)
+      }
+    } else {
+      await navigator.clipboard.writeText("https://crypto-dashboard-demo.netlify.app/") // Replace with your link
+      setCopied(true)
+    }
+  }
+  const handleSnackBarClose = async () => {
+    setCopied(false)
+  }
   return (
     <div className={"flexInfo"}>
       <div className="leftComponent">
@@ -32,7 +59,7 @@ const Landing = () => {
             text={"Share"}
             outlined={true}
             onClick={() => {
-              console.log("#")
+              handleShare()
             }}
           />
         </motion.div>
@@ -41,6 +68,11 @@ const Landing = () => {
         <img src={gradient} alt="gradient" className="gradientimg" />
         <motion.img src={iphone} alt="iphone" className="iphoneimg" initial={{ y: -10 }} animate={{ y: 10 }} transition={{ type: "smooth", repeatType: "mirror", duration: 1.5, repeat: Infinity }} />
       </div>
+      <Snackbar open={copied} autoHideDuration={6000} onClose={handleSnackBarClose}>
+        <Alert onClose={handleSnackBarClose} severity="success" sx={{ width: "100%" }}>
+          Link copied to clipboard!
+        </Alert>
+      </Snackbar>
     </div>
   )
 }
