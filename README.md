@@ -1,70 +1,87 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Crpto Dashboard
 
-## Available Scripts
+This Crypto Dashboard conatins information on cryptocurrencies so  that a user can track the rates, market prices, changes, graph of currencies. 
 
-In the project directory, you can run:
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://crypto-dashboard-demo.netlify.app/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+**Client:** React, Framer-Motion, Chart.js, React-router, axios
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## API Reference
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Coingecko API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Get all coins
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```http
+  GET https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en
+```
 
-### `npm run eject`
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Not Required**.|
+| `vs_currency` | `string` | **Required**. ex: usd|
+| `per_page` | `string` | **Required**. ex: 100|
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Get single coin data
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```http
+  GET https://api.coingecko.com/api/v3/coins/${id}
+```
 
-## Learn More
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of coin to fetch. ex: bitcoin |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Get single coin market data
 
-### Code Splitting
+```http
+  GET https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${days}&interval=daily
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `coinId`      | `string` | **Required**. Id of coin to fetch. ex: bitcoin |
+| `days`      | `string` | **Required**. Data of past x days. Ex: 10|
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Authors
 
-### Making a Progressive Web App
+- [@buddydeepansh](https://github.com/buddydeepansh)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Color Reference
 
-### Advanced Configuration
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| white | ![#fff](https://via.placeholder.com/10/fff?text=+) #fff |
+| black | ![#f8f8f8](https://via.placeholder.com/10/111?text=+) #111 |
+| blue | ![#3a80e9](https://via.placeholder.com/10/3a80e9?text=+) #3a80e9 |
+| grey | ![#888](https://via.placeholder.com/10/888?text=+) #888 |
+| dark-grey | ![#1b1b1b](https://via.placeholder.com/10/1b1b1b?text=+) #1b1b1b |
+| green | ![#61c96f](https://via.placeholder.com/10/61c96f?text=+) #61c96f |
+| red | ![#f94141](https://via.placeholder.com/10/f94141?text=+) #f94141 |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+To install this project locally run
 
-### `npm run build` fails to minify
+```bash
+  npm install
+  npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Acknowledgements
+
+ - This project is made under the guidance of Mr. Avi Vashishta (Intructor: AccioJobs).
+
